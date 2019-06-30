@@ -5,5 +5,5 @@ public class Item : ScriptableObject
 {
     public string itemName;
     public Sprite icon = null;
-    public bool isDefaultIem = false;
+    public bool isDefaultItem = false;
 }
