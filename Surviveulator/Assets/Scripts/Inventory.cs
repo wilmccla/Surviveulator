@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public delegate void OnItemChanged();
+
+    public OnItemChanged onItemChangedCallBack;
+
     public static Inventory instance;
 
     public List<Item> items = new List<Item>();
+
+    public int space = 20;
 
     void Awake()
     {
@@ -19,16 +25,33 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
-    public void Add(Item item)
+    public bool Add(Item item)
     {
         if (!item.isDefaultItem)
         {
+            if (items.Count >= space)
+            {
+                Debug.Log("Inventory is full");
+                return false;
+            }
             items.Add(item);
+
+            if (onItemChangedCallBack != null)
+            {
+                onItemChangedCallBack.Invoke();
+            }
         }
+
+        return true;
     }
 
     public void Remove(Item item)
     {
         items.Remove(item);
+
+        if (onItemChangedCallBack != null)
+        {
+            onItemChangedCallBack.Invoke();
+        }
     }
 }

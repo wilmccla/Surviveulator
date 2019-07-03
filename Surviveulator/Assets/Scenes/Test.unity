@@ -1728,3 +1728,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22153cb8e6c01764ba1ddbe2284fdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsParent: {fileID: 4516428894547574874}
+--- !u!224 &4516428894547574874 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1920856954535238620, guid: 0512eec66f97fc24b8df28f308981e33,
+    type: 3}
+  m_PrefabInstance: {fileID: 4516428894547574870}
+  m_PrefabAsset: {fileID: 0}
